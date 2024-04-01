@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Enrollment Form</title>
+    </head>
+<script>
+    function validate()
+ {
+     
+      var name = form.fname.value;
+     for(x in name)
+         {
+             ch=name.charCodeAt(x);
+             if(ch<65||ch>90 && ch<97||ch>122)
+                 {
+                 alert("Invalid firstname");
+                 return false;
+                 }
+         }
+         var name1 = form.lname.value;
+     for(y in name1)
+         {
+             ch=name1.charCodeAt(y);
+             if(ch<65||ch>90 && ch<97||ch>122)
+                 {
+                 alert("Invalid lastname");
+                 return false;
+                 }
+         }
+     var phn = form.mobile.value;
+     var len = phn.length;
+     if (len!==10)
+     {    alert("Phone no should be exactly 10 digits");
+         return false;
+        }
+    
+        var pwd1=form.pass.value;
+        var pwdl=pwd1.length;
+        if(pwdl%2==1)
+            {
+            alert("Password should contain even number of characters");
+            return false;
+            }
+        if(pwdl > 8)
+            {
+                alert("Password should not exceed 8 digits");
+                return false;
+            }
+       
+         var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+         var mail=form.email.value;
+    if (reg.test(mail)){
+    alert("Valid email"); }
+    else{
+        alert("Invalid email");
+    return false;
+    }
+     
+            
+        return true;
+     }
+    </script>    
+    <body>
+        <marquee><h2>Enrollment Form</h2></marquee>
+        <center>
+        <img src="enrollment.png" width="150" height="150" alt="unable to fetch the image">
+        <form name="form" method="POST" action="formsucc.html" onSubmit="return validate()">
+            
+        <table>
+            <tr><td>First Name : </td> 
+                <td><input type="text" placeholder="Name"name="fname" required></td>
+            </tr>
+            <tr><td>Last Name : </td> 
+                <td><input type="text" placeholder="Name"name="lname" required></td>
+            </tr>
+            <tr><td>Mobile : </td> 
+                <td><input type="number" placeholder="91-"name="mobile" required></td>
+            </tr>
+            <tr><td>Password :</td>
+                <td><input type="password"placeholder="Password"name="pass"required></td>
+            </tr>
+            <tr><td>Confirm Password :</td>
+                <td><input type="password" placeholder="Password" name="Cpass" required></td>
+            </tr>
+            <tr><td>Email : </td>
+                 <td><input type="email" placeholder="Email" name="email" required></td>
+            </tr>
+            <tr><td>Gender:</td>       
+                 <td>Male :<input type="radio" name="gen" value="male"> 
+                Female :<input type="radio" name="gen" value="female"></td>
+                 </tr>
+            <tr><td>DOB : </td>
+                 <td><input type="date" name="dt"required></td>
+            </tr>
+            <tr><td></td></tr>   
+        </table>
+        <input type="submit" value="Submit">
+        </form>
+        </center>
+    </body>
+    </html>

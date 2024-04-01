@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Login page</title>
+    </head>
+    <script>
+        function validate()
+        {
+            var name=form.id.value;
+            for(i in name)
+            {
+               ch=name.charCodeAt(i);
+             if(ch<65||ch>90 && ch<97||ch>122)
+                 {
+                 alert("Invalid firstname");
+                 return false;
+                 }
+            }
+            var pwd1=form.pass.value;
+        var pwdl=pwd1.length;
+        if(pwdl%2==1)
+            {
+            alert("Password should contain even number of characters");
+            return false;
+            }
+        if(pwdl > 8)
+            {
+                alert("Password should not exceed 8 digits");
+                return false;
+            }
+            return true;
+       
+        }
+    </script>
+    <body>
+         <center>
+        <img src="login.jpeg" width="150" height="150" alt="unable to fetch the image">
+        <h1>Login</h1>
+        <form  name="form" method="POST" action="loginsucc.html" onSubmit="return validate()">
+        <table>
+        <tr>
+            <td><b>User Name:</b> </td>
+            <td><input type="text"name="id" required></td>
+        </tr>
+        <tr>
+            <td><b>Password:</b></td>
+            <td><input type="password"name="password"required></td>
+        </tr>
+        </table>
+        <input type="submit"value="submit">
+        </form>
+        </center>
+    </body>
+</html>
